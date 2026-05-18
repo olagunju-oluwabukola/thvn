@@ -1,0 +1,1738 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>THARVINE — SS25 Collection</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ---------- RESET & VARIABLES ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --black: #0a0a0a;
+      --white: #fff;
+      --cream: #ede9e1;
+      --grey: #6b6560;
+      --light-grey: #fff;
+      --mid-grey: #3a3835;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--white);
+      color: var(--black);
+      overflow-x: hidden;
+    }
+
+    /* ---------- UTILITIES / PAGES ---------- */
+    .page {
+      display: none;
+      min-height: 100vh;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    /* ---------- TICKER ---------- */
+    .ticker {
+      background: var(--black);
+      color: var(--white);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 9px 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .ticker-inner {
+      display: inline-block;
+      animation: ticker 28s linear infinite;
+    }
+
+    .ticker-inner span {
+      margin: 0 40px;
+    }
+
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* ---------- NAVIGATION ---------- */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 48px;
+      border-bottom: 1px solid var(--light-grey);
+      background: var(--white);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px;
+      letter-spacing: 4px;
+      cursor: pointer;
+      color: var(--black);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--black);
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .nav-links a:hover {
+      opacity: 0.45;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-icon {
+      cursor: pointer;
+      font-size: 18px;
+      transition: opacity 0.2s;
+      position: relative;
+    }
+
+    .nav-icon:hover {
+      opacity: 0.6;
+    }
+
+    .cart-count {
+      position: absolute;
+      top: -6px;
+      right: -8px;
+      background: var(--black);
+      color: var(--white);
+      border-radius: 50%;
+      width: 16px;
+      height: 16px;
+      font-size: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+    }
+
+    /* ---------- HERO SECTION ---------- */
+    .hero {
+      position: relative;
+      height: 92vh;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+
+    .hero-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.4) 45%, rgba(0, 0, 0, 0.15) 100%);
+      z-index: 1;
+    }
+
+    .hero-grain {
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+      opacity: 0.35;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      padding: 64px 48px;
+      max-width: 720px;
+    }
+
+    .hero-tag {
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: rgba(245, 242, 237, 0.6);
+      margin-bottom: 16px;
+      border-left: 2px solid var(--white);
+      padding-left: 12px;
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(60px, 9.5vw, 128px);
+      font-weight: 300;
+      line-height: 0.88;
+      color: var(--white);
+      margin-bottom: 32px;
+      letter-spacing: -1px;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      opacity: 0.7;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    /* ---------- BUTTONS ---------- */
+    .btn {
+      padding: 14px 32px;
+      font-size: 11px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      border: none;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      transition: all 0.25s;
+    }
+
+    .btn-primary {
+      background: var(--white);
+      color: var(--black);
+    }
+
+    .btn-primary:hover {
+      background: var(--cream);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 1px solid rgba(245, 242, 237, 0.5);
+    }
+
+    .btn-outline:hover {
+      background: rgba(245, 242, 237, 0.08);
+      border-color: var(--white);
+    }
+
+    .hero-accent-line {
+      position: absolute;
+      right: 48px;
+      top: 50%;
+      transform: translateY(-50%);
+      writing-mode: vertical-rl;
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: rgba(245, 242, 237, 0.25);
+      text-transform: uppercase;
+      z-index: 3;
+    }
+
+    /* ---------- SECTIONS & FILTERS ---------- */
+    .section {
+      padding: 80px 48px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 40px;
+    }
+
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 48px;
+      letter-spacing: 3px;
+    }
+
+    .section-link {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--black);
+      cursor: pointer;
+      text-decoration: none;
+      border-bottom: 1px solid var(--black);
+      padding-bottom: 2px;
+      opacity: 0.5;
+    }
+
+    .section-link:hover {
+      opacity: 1;
+    }
+
+    .filter-tabs {
+      display: flex;
+      gap: 0;
+      margin-bottom: 40px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      border-bottom: 1px solid var(--light-grey);
+    }
+
+    .filter-tabs::-webkit-scrollbar {
+      display: none;
+    }
+
+    .filter-tab {
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 10px 20px;
+      cursor: pointer;
+      color: var(--grey);
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      white-space: nowrap;
+    }
+
+    .filter-tab.active {
+      color: var(--black);
+      border-bottom-color: var(--black);
+    }
+
+    .filter-tab:hover {
+      color: var(--black);
+    }
+
+    /* ---------- PRODUCT GRID ---------- */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 2px;
+    }
+
+    .product-card {
+      cursor: pointer;
+    }
+
+    .product-img-wrap {
+      position: relative;
+      background: var(--cream);
+      aspect-ratio: 3/4;
+      overflow: hidden;
+      margin-bottom: 12px;
+    }
+
+    .product-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+      display: block;
+    }
+
+    .product-card:hover .product-img-wrap img {
+      transform: scale(1.05);
+    }
+
+    .product-add {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--black);
+      color: var(--white);
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-align: center;
+      padding: 13px;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+      z-index: 2;
+    }
+
+    .product-card:hover .product-add {
+      transform: translateY(0);
+    }
+
+    .product-card-info {
+      padding: 0 2px;
+    }
+
+    .product-name {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .product-price {
+      font-size: 13px;
+      color: var(--grey);
+      font-weight: 300;
+    }
+
+    /* ---------- MARQUEE ---------- */
+    .marquee-strip {
+      background: var(--black);
+      padding: 18px 0;
+      overflow: hidden;
+      white-space: nowrap;
+      border-top: 1px solid var(--mid-grey);
+      border-bottom: 1px solid var(--mid-grey);
+    }
+
+    .marquee-inner {
+      display: inline-block;
+      animation: ticker 22s linear infinite;
+    }
+
+    .marquee-inner span {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-style: italic;
+      color: var(--white);
+      margin: 0 28px;
+      opacity: 0.8;
+    }
+
+    .marquee-inner .dot {
+      font-style: normal;
+      color: rgba(255, 255, 255, 0.2);
+      font-size: 14px;
+    }
+
+    /* ---------- FEATURED BANNER ---------- */
+    .featured-banner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      height: 70vh;
+      gap: 2px;
+    }
+
+    .featured-panel {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      padding: 40px;
+      cursor: pointer;
+      background: var(--black);
+    }
+
+    .featured-panel-bg {
+      position: absolute;
+      inset: 0;
+      transition: transform 0.7s ease;
+    }
+
+    .featured-panel-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      opacity: 0.55;
+      transition: opacity 0.4s ease;
+    }
+
+    .featured-panel:hover .featured-panel-bg {
+      transform: scale(1.05);
+    }
+
+    .featured-panel:hover .featured-panel-bg img {
+      opacity: 0.4;
+    }
+
+    .featured-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.1) 60%);
+      z-index: 1;
+    }
+
+    .featured-panel-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .featured-panel-label {
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: rgba(245, 242, 237, 0.55);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .featured-panel-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 42px;
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      background: var(--black);
+      color: var(--white);
+      padding: 64px 48px 32px;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 36px;
+      letter-spacing: 4px;
+      margin-bottom: 16px;
+      color: var(--white);
+    }
+
+    .footer-desc {
+      font-size: 13px;
+      color: rgba(245, 242, 237, 0.4);
+      line-height: 1.8;
+    }
+
+    .footer-col h4 {
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(245, 242, 237, 0.4);
+      margin-bottom: 20px;
+      border-bottom: 1px solid rgba(245, 242, 237, 0.08);
+      padding-bottom: 10px;
+    }
+
+    .footer-col a {
+      display: block;
+      font-size: 13px;
+      color: rgba(245, 242, 237, 0.55);
+      text-decoration: none;
+      margin-bottom: 10px;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover {
+      color: var(--white);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(245, 242, 237, 0.08);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      color: rgba(245, 242, 237, 0.25);
+      letter-spacing: 1px;
+    }
+
+    /* ---------- PRODUCT PAGE (PDP) ---------- */
+    .product-page-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: calc(100vh - 120px);
+    }
+
+    .product-gallery {
+      padding: 40px 48px;
+    }
+
+    .main-img-wrap {
+      background: var(--cream);
+      aspect-ratio: 3/4;
+      overflow: hidden;
+      margin-bottom: 12px;
+      position: relative;
+    }
+
+    .main-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .model-label {
+      position: absolute;
+      bottom: 14px;
+      left: 14px;
+      background: rgba(0, 0, 0, 0.75);
+      color: white;
+      font-size: 10px;
+      letter-spacing: 2px;
+      padding: 5px 12px;
+      text-transform: uppercase;
+    }
+
+    .thumb-row {
+      display: flex;
+      gap: 8px;
+    }
+
+    .thumb {
+      background: var(--cream);
+      aspect-ratio: 3/4;
+      flex: 1;
+      overflow: hidden;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: border-color 0.2s;
+      position: relative;
+    }
+
+    .thumb.active {
+      border-color: var(--black);
+    }
+
+    .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .thumb-desc {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      font-size: 9px;
+      letter-spacing: 1px;
+      text-align: center;
+      padding: 5px 4px;
+      text-transform: uppercase;
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+
+    .thumb:hover .thumb-desc {
+      opacity: 1;
+    }
+
+    .product-info {
+      padding: 60px 48px 40px;
+      border-left: 1px solid var(--light-grey);
+    }
+
+    .product-breadcrumb {
+      font-size: 11px;
+      color: var(--grey);
+      letter-spacing: 1px;
+      margin-bottom: 24px;
+      cursor: pointer;
+    }
+
+    .product-breadcrumb:hover {
+      opacity: 0.6;
+    }
+
+    .product-page-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 44px;
+      font-weight: 300;
+      line-height: 1.05;
+      margin-bottom: 8px;
+    }
+
+    .product-page-price {
+      font-size: 22px;
+      color: var(--black);
+      margin-bottom: 24px;
+      font-weight: 400;
+    }
+
+    .product-page-desc {
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--grey);
+      margin-bottom: 32px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--light-grey);
+    }
+
+    .size-label {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      font-weight: 500;
+      color: var(--grey);
+    }
+
+    .size-options {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
+
+    .size-btn {
+      width: 48px;
+      height: 48px;
+      border: 1px solid var(--light-grey);
+      background: none;
+      cursor: pointer;
+      font-size: 12px;
+      font-family: 'DM Sans', sans-serif;
+      transition: all 0.2s;
+    }
+
+    .size-btn:hover,
+    .size-btn.active {
+      background: var(--black);
+      color: var(--white);
+      border-color: var(--black);
+    }
+
+    .size-btn.unavailable {
+      opacity: 0.25;
+      cursor: not-allowed;
+      text-decoration: line-through;
+    }
+
+    .add-to-cart-btn {
+      width: 100%;
+      padding: 18px;
+      background: var(--black);
+      color: var(--white);
+      border: none;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      cursor: pointer;
+      margin-bottom: 12px;
+    }
+
+    .add-to-cart-btn:hover {
+      opacity: 0.75;
+    }
+
+    .product-meta {
+      margin-top: 32px;
+      padding-top: 32px;
+      border-top: 1px solid var(--light-grey);
+    }
+
+    .meta-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--cream);
+      color: var(--grey);
+    }
+
+    .meta-row strong {
+      color: var(--black);
+      font-weight: 500;
+    }
+
+    /* ---------- CART SIDEBAR & OVERLAY ---------- */
+    .cart-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.35);
+      z-index: 200;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+
+    .cart-overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .cart-sidebar {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 420px;
+      height: 100vh;
+      background: var(--white);
+      z-index: 201;
+      transform: translateX(100%);
+      transition: transform 0.35s ease;
+      display: flex;
+      flex-direction: column;
+      border-left: 1px solid var(--light-grey);
+    }
+
+    .cart-sidebar.open {
+      transform: translateX(0);
+    }
+
+    .cart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 28px;
+      border-bottom: 1px solid var(--light-grey);
+    }
+
+    .cart-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      letter-spacing: 3px;
+    }
+
+    .close-btn {
+      cursor: pointer;
+      font-size: 20px;
+      color: var(--grey);
+      background: none;
+      border: none;
+    }
+
+    .close-btn:hover {
+      color: var(--black);
+    }
+
+    .cart-items {
+      flex: 1;
+      overflow-y: auto;
+      padding: 24px 28px;
+    }
+
+    .cart-empty {
+      text-align: center;
+      padding: 60px 0;
+      color: var(--grey);
+      font-size: 13px;
+      text-transform: uppercase;
+    }
+
+    .cart-item {
+      display: grid;
+      grid-template-columns: 72px 1fr auto;
+      gap: 14px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--cream);
+      align-items: start;
+    }
+
+    .cart-item-img {
+      background: var(--cream);
+      aspect-ratio: 3/4;
+      overflow: hidden;
+    }
+
+    .cart-item-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .cart-item-name {
+      font-size: 12px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+
+    .cart-item-detail {
+      font-size: 11px;
+      color: var(--grey);
+      margin-bottom: 10px;
+    }
+
+    .qty-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .qty-btn {
+      width: 26px;
+      height: 26px;
+      border: 1px solid var(--light-grey);
+      background: none;
+      cursor: pointer;
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .qty-btn:hover {
+      background: var(--black);
+      color: var(--white);
+      border-color: var(--black);
+    }
+
+    .remove-item {
+      font-size: 10px;
+      color: var(--grey);
+      cursor: pointer;
+      margin-top: 6px;
+      text-decoration: underline;
+    }
+
+    .cart-footer {
+      padding: 22px 28px;
+      border-top: 1px solid var(--light-grey);
+    }
+
+    .cart-subtotal {
+      display: flex;
+      justify-content: space-between;
+      font-size: 15px;
+      font-weight: 500;
+      margin-bottom: 18px;
+    }
+
+    .checkout-btn {
+      width: 100%;
+      padding: 17px;
+      background: var(--black);
+      color: var(--white);
+      border: none;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .checkout-btn:hover {
+      opacity: 0.75;
+    }
+
+    /* ---------- CHECKOUT PAGE ---------- */
+    .checkout-layout {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 60px 24px;
+    }
+
+    .checkout-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 42px;
+      letter-spacing: 3px;
+      margin-bottom: 8px;
+    }
+
+    .checkout-sub {
+      font-size: 13px;
+      color: var(--grey);
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
+
+    .checkout-section {
+      background: var(--cream);
+      border: 1px solid var(--light-grey);
+      padding: 32px;
+      margin-bottom: 20px;
+    }
+
+    .checkout-section h3 {
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--light-grey);
+      color: var(--grey);
+    }
+
+    .checkout-order-item {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      padding: 8px 0;
+      color: var(--grey);
+    }
+
+    .checkout-order-item strong {
+      color: var(--black);
+    }
+
+    .checkout-total {
+      display: flex;
+      justify-content: space-between;
+      font-size: 17px;
+      font-weight: 600;
+      padding-top: 16px;
+      border-top: 1px solid var(--light-grey);
+      margin-top: 8px;
+    }
+
+    .bank-details {
+      background: var(--black);
+      color: var(--white);
+      padding: 24px;
+      margin: 20px 0;
+    }
+
+    .bank-details h4 {
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: rgba(245, 242, 237, 0.5);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .bank-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+      align-items: center;
+    }
+
+    .bank-row .label {
+      color: rgba(255, 255, 255, 0.4);
+      font-size: 11px;
+      letter-spacing: 1px;
+    }
+
+    .copy-btn {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 4px 12px;
+      font-size: 10px;
+      cursor: pointer;
+    }
+
+    .wa-btn-checkout {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: #25D366;
+      color: white;
+      border: none;
+      padding: 16px 24px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      letter-spacing: 2px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 16px;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+
+    .wa-btn-checkout:hover {
+      background: #1ead54;
+    }
+
+    .step-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--black);
+      color: white;
+      font-size: 10px;
+      font-weight: 700;
+      margin-right: 8px;
+    }
+
+    /* ---------- FLOATING WHATSAPP & TOAST ---------- */
+    .wa-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      width: 54px;
+      height: 54px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 999;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);
+      transition: transform 0.2s;
+      text-decoration: none;
+    }
+
+    .wa-float:hover {
+      transform: scale(1.1);
+    }
+
+    .wa-float svg {
+      width: 26px;
+      height: 26px;
+      fill: white;
+    }
+
+    .wa-tooltip {
+      position: absolute;
+      right: 66px;
+      background: var(--black);
+      color: white;
+      font-size: 11px;
+      padding: 6px 12px;
+      white-space: nowrap;
+      border-radius: 2px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s;
+    }
+
+    .wa-float:hover .wa-tooltip {
+      opacity: 1;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 100px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--black);
+      color: var(--white);
+      padding: 13px 28px;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s;
+      z-index: 500;
+      white-space: nowrap;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 900px) {
+      nav {
+        padding: 16px 20px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .section {
+        padding: 48px 20px;
+      }
+
+      .hero-content {
+        padding: 40px 20px;
+      }
+
+      .product-page-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .product-info {
+        border-left: none;
+        border-top: 1px solid var(--light-grey);
+        padding: 32px 20px;
+      }
+
+      .product-gallery {
+        padding: 24px 20px;
+      }
+
+      .featured-banner {
+        grid-template-columns: 1fr;
+        height: auto;
+      }
+
+      .featured-panel {
+        min-height: 55vw;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+
+      .cart-sidebar {
+        width: 100vw;
+      }
+
+      .toast {
+        white-space: nowrap;
+        font-size: 10px;
+        padding: 10px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating WhatsApp Button -->
+  <a class="wa-float" href="https://wa.me/2348000000000" target="_blank" rel="noopener noreferrer">
+    <span class="wa-tooltip">Chat with us</span>
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+    </svg>
+  </a>
+
+  <!-- Toast Message -->
+  <div class="toast" id="toast"></div>
+
+  <!-- Cart Overlay & Sidebar -->
+  <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <div class="cart-title">Your Bag</div>
+      <button class="close-btn" onclick="closeCart()">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <div class="cart-empty">Your bag is empty.</div>
+    </div>
+    <div class="cart-footer" id="cartFooter" style="display: none">
+      <div class="cart-subtotal">
+        <span>Subtotal</span>
+        <span id="cartTotal">£0</span>
+      </div>
+      <button class="checkout-btn" onclick="goToCheckout()">Proceed to Checkout</button>
+    </div>
+  </div>
+
+  <!-- ================= HOME PAGE ================= -->
+  <div class="page active" id="homePage">
+    <div class="ticker">
+      <div class="ticker-inner">
+        <span>New Exclusive Collection — Shop Now</span><span>·</span>
+        <span>Free delivery on orders over £150</span><span>·</span>
+        <span>Subscribe for 10% off your first order</span><span>·</span>
+        <span>New Exclusive Collection — Shop Now</span><span>·</span>
+        <span>Free delivery on orders over £150</span><span>·</span>
+        <span>Subscribe for 10% off your first order</span><span>·</span>
+      </div>
+    </div>
+
+    <nav>
+      <div class="nav-logo" onclick="showPage('homePage')">THARVINE</div>
+      <div class="nav-links">
+        <a onclick="showPage('homePage')">Home</a>
+        <a onclick="showPage('homePage')">Shop</a>
+        <a>Campaign</a>
+        <a>About Us</a>
+        <a>Stories</a>
+        <a>Press</a>
+      </div>
+      <div class="nav-right">
+        <div class="nav-icon" onclick="openCart()">🛍<span class="cart-count" id="cartCount" style="display:none">0</span></div>
+      </div>
+    </nav>
+
+    <div class="hero">
+      <img class="hero-img" src="img/hero-bg.jpeg" alt="Tharvine SS25 Collection" onerror="this.style.display='none';">
+      <div class="hero-overlay"></div>
+      <div class="hero-grain"></div>
+      <div class="hero-content">
+        <div class="hero-tag">New Season — SS25 Collection</div>
+        <h1 class="hero-title">Wear the <em>Nature</em> of You</h1>
+        <div class="hero-btns">
+          <button class="btn btn-primary" onclick="scrollToProducts()">Shop Now</button>
+          <button class="btn btn-outline" onclick="scrollToProducts()">Discover Collection</button>
+        </div>
+      </div>
+      <div class="hero-accent-line">Tharvine — Est. 2024</div>
+    </div>
+
+    <div class="section" id="productsSection">
+      <div class="section-header">
+        <div class="section-title">Popular Picks</div>
+        <a class="section-link">View All</a>
+      </div>
+      <div class="filter-tabs" id="filterTabs">
+        <div class="filter-tab active" onclick="setTab(this,'all')">All</div>
+        <div class="filter-tab" onclick="setTab(this,'bus-jersey')">B.U.S Jersey</div>
+        <div class="filter-tab" onclick="setTab(this,'eko-series')">Eko Series II</div>
+        <div class="filter-tab" onclick="setTab(this,'fresh-teady')">Fresh Teady</div>
+        <div class="filter-tab" onclick="setTab(this,'tharvine-classic')">Tharvine Classic</div>
+        <div class="filter-tab" onclick="setTab(this,'jiggy')">Jiggy</div>
+        <div class="filter-tab" onclick="setTab(this,'morphism')">Morphism</div>
+        <div class="filter-tab" onclick="setTab(this,'nasaa')">NASAA</div>
+        <div class="filter-tab" onclick="setTab(this,'toyw')">TOYW</div>
+        <div class="filter-tab" onclick="setTab(this,'vintage')">Vintage</div>
+        <div class="filter-tab" onclick="setTab(this,'thvn')">THVN</div>
+        <div class="filter-tab" onclick="setTab(this,'bold')">Tharvine's Bold</div>
+      </div>
+      <div class="product-grid" id="productGrid"></div>
+    </div>
+
+    <div class="marquee-strip">
+      <div class="marquee-inner">
+        <span>Crafted with Intention</span><span class="dot">◆</span>
+        <span>Worn with Purpose</span><span class="dot">◆</span>
+        <span>Tharvine</span><span class="dot">◆</span>
+        <span>Made in Nigeria</span><span class="dot">◆</span>
+        <span>Crafted with Intention</span><span class="dot">◆</span>
+        <span>Worn with Purpose</span><span class="dot">◆</span>
+        <span>Tharvine</span><span class="dot">◆</span>
+        <span>Made in Nigeria</span><span class="dot">◆</span>
+      </div>
+    </div>
+
+    <div class="featured-banner">
+      <div class="featured-panel fp-left" onclick="openProduct(0)">
+        <div class="featured-panel-bg">
+          <img src="img/featured-women.jpeg" alt="Femme Nature" onerror="this.src='img/fallback.jpg'">
+        </div>
+        <div class="featured-overlay"></div>
+        <div class="featured-panel-content">
+          <div class="featured-panel-label">Femme Nature</div>
+          <div class="featured-panel-title">For the<br>Woman Who<br>Moves</div>
+        </div>
+      </div>
+      <div class="featured-panel fp-right" onclick="openProduct(2)">
+        <div class="featured-panel-bg">
+          <img src="img/outer-wear.jpeg" alt="Outerwear Edit" onerror="this.src='img/fallback.jpg'">
+        </div>
+        <div class="featured-overlay"></div>
+        <div class="featured-panel-content">
+          <div class="featured-panel-label">Campaign</div>
+          <div class="featured-panel-title">The Outerwear</div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand">THARVINE</div>
+          <p class="footer-desc">Elevated streetwear crafted for those who move with intention. Every piece tells a story of nature, culture, and identity.</p>
+        </div>
+        <div class="footer-col"><h4>Shop</h4><a>New Arrivals</a><a>Tops</a><a>Bottoms</a><a>Accessories</a><a>Sale</a></div>
+        <div class="footer-col"><h4>Info</h4><a>About Us</a><a>Stories</a><a>Press</a><a>Campaign</a><a>Sustainability</a></div>
+        <div class="footer-col"><h4>Support</h4><a>Shipping &amp; Returns</a><a>Size Guide</a><a>Contact Us</a><a href="https://wa.me/2348000000000" target="_blank">WhatsApp Us</a></div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Tharvine. All rights reserved.</span>
+        <span>Privacy Policy · Terms of Service</span>
+      </div>
+    </footer>
+  </div>
+
+  <!-- ================= PRODUCT PAGE (PDP) ================= -->
+  <div class="page" id="productPage">
+    <div class="ticker">
+      <div class="ticker-inner">
+        <span>New Exclusive Collection — Shop Now</span><span>·</span>
+        <span>Free delivery on orders over £150</span><span>·</span>
+        <span>Subscribe for 10% off your first order</span><span>·</span>
+      </div>
+    </div>
+    <nav>
+      <div class="nav-logo" onclick="showPage('homePage')">THARVINE</div>
+      <div class="nav-links"><a onclick="showPage('homePage')">Home</a><a onclick="showPage('homePage')">Shop</a><a>Campaign</a><a>About Us</a></div>
+      <div class="nav-right"><div class="nav-icon" onclick="openCart()">🛍<span class="cart-count" id="cartCount2" style="display:none">0</span></div></div>
+    </nav>
+    <div class="product-page-layout">
+      <div class="product-gallery">
+        <div class="main-img-wrap">
+          <div id="mainImgBox"><div class="main-img-placeholder"><span>Tharvine</span></div></div>
+          <div class="model-label" id="modelLabel">View 1</div>
+        </div>
+        <div class="thumb-row" id="thumbRow"></div>
+      </div>
+      <div class="product-info">
+        <div class="product-breadcrumb" onclick="showPage('homePage')">← Home / Shop / <span id="pdpCat">Collection</span></div>
+        <h1 class="product-page-name" id="pdpName">Product Name</h1>
+        <div class="product-page-price" id="pdpPrice">#90.00</div>
+        <div class="product-page-desc" id="pdpDesc">A versatile, beautifully crafted piece from the Tharvine SS25 collection.</div>
+        <div class="size-label">Select Size</div>
+        <div class="size-options" id="sizeOptions">
+          <button class="size-btn" onclick="selectSize(this)">XS</button>
+          <button class="size-btn" onclick="selectSize(this)">S</button>
+          <button class="size-btn" onclick="selectSize(this)">M</button>
+          <button class="size-btn" onclick="selectSize(this)">L</button>
+          <button class="size-btn unavailable" disabled>XL</button>
+        </div>
+        <button class="add-to-cart-btn" onclick="addToCart()">Add to Bag</button>
+        <div class="product-meta">
+          <div class="meta-row"><span>Material</span><strong id="pdpMaterial">100% Cotton</strong></div>
+          <div class="meta-row"><span>Fit</span><strong id="pdpFit">Regular Fit</strong></div>
+          <div class="meta-row"><span>Made in</span><strong>Nigeria</strong></div>
+          <div class="meta-row"><span>Care</span><strong>Machine wash 30°</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= CHECKOUT PAGE ================= -->
+  <div class="page" id="checkoutPage">
+    <div class="ticker">
+      <div class="ticker-inner">
+        <span>Secure Checkout</span><span>·</span><span>Bank Transfer Only</span><span>·</span>
+        <span>Send Receipt via WhatsApp to confirm your order</span><span>·</span>
+      </div>
+    </div>
+    <nav>
+      <div class="nav-logo" onclick="showPage('homePage')">THARVINE</div>
+      <div class="nav-links"><a onclick="showPage('homePage')">← Continue Shopping</a></div>
+      <div class="nav-right"><div class="nav-icon" onclick="openCart()">🛍</div></div>
+    </nav>
+    <div class="checkout-layout">
+      <div class="checkout-title">Checkout</div>
+      <div class="checkout-sub">Complete your purchase by transferring payment to the account below.</div>
+      <div class="checkout-section"><h3><span class="step-badge">1</span> Order Summary</h3><div id="checkoutItems"></div><div class="checkout-total"><span>Total</span><span id="checkoutTotal">£0</span></div></div>
+      <div class="checkout-section">
+        <h3><span class="step-badge">2</span> Bank Transfer Details</h3>
+        <p style="font-size:13px;color:var(--grey);margin-bottom:16px;">Transfer the exact amount to the account below. Your order will be confirmed once payment is verified.</p>
+        <div class="bank-details">
+          <h4>Tharvine Payment Account</h4>
+          <div class="bank-row"><span class="label">Bank Name</span><span class="val">First Bank of Nigeria</span></div>
+          <div class="bank-row"><span class="label">Account Name</span><span class="val">Tharvine Limited</span></div>
+          <div class="bank-row"><span class="label">Account Number</span><span class="val" id="accNum">3012345678</span><button class="copy-btn" onclick="copyAcc()">Copy</button></div>
+          <div class="bank-row"><span class="label">Reference</span><span class="val" id="orderRef">THV-XXXX</span></div>
+        </div>
+      </div>
+      <div class="checkout-section">
+        <h3><span class="step-badge">3</span> Send Your Receipt</h3>
+        <p class="checkout-note">After making the transfer, send your payment receipt to our WhatsApp. Include your <strong>name</strong>, <strong>delivery address</strong>, and order reference <strong><span id="orderRef2">THV-XXXX</span></strong>.</p>
+        <a href="https://wa.me/2348000000000?text=Hi%20Tharvine%2C%20I%20just%20made%20a%20payment%20for%20my%20order." target="_blank"><button class="wa-btn-checkout"><svg viewBox="0 0 24 24" width="20" height="20" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>Send Receipt on WhatsApp — +234 800 000 0000</button></a>
+        <p style="font-size:11px;color:var(--grey);margin-top:12px;text-align:center;">We'll confirm your order within 2–4 hours of receiving your receipt.</p>
+      </div>
+      <div style="text-align:center;margin-top:20px;"><button class="btn btn-outline" style="color:var(--black);border-color:var(--light-grey);" onclick="showPage('homePage')">← Continue Shopping</button></div>
+    </div>
+  </div>
+
+  <script>
+    /* ---------- PRODUCT DATA (LOCAL IMAGES) ---------- */
+    const products = [
+      { name: "B.U.S Jersey", price: 90, category: "bus-jersey", coverImg: "/img/B.U.S JERSEY (Back).png", desc: "The B.U.S Jersey — a signature Tharvine piece. Screen-printed artwork on heavyweight cotton with a relaxed, boxy silhouette.",
+      material: "100% Cotton (280gsm)", fit: "Oversized / Boxy",
+      models: [{ label: "Front View", img: "/img/B.U.S JERSEY (Front).png" },  { label: "Back View", img: "/img/B.U.S JERSEY (Back).png" }, { label: "Styled", img: "img/bus-modeled.jpeg" }] },
+      { name: "Eko Series II", price: 95, category: "eko-series",
+       coverImg: "img/EKO SERIES II (Back).png",
+       desc: "Inspired by West African street culture. Vibrant hand-finished graphics on premium ringspun cotton.",
+       material: "100% Ringspun Cotton", fit: "Regular / Slightly Tapered",
+       models: [{ label: "Front View", img: "img/EKO SERIES II (Front).png" },
+        { label: "Styled", img: "img/eko-styled.jpeg" },
+        { label: "Back View", img: "img/EKO SERIES II (Back).png" },
+        ] },
+      { name: "Fresh Teady", price: 15000, category: "fresh-teady",
+      coverImg: "img/FRESH TEDDY.png",
+      desc: "A statement piece built on a classic silhouette, reimagined in bold colour. Features a contrast collar.",
+       material: "98% Cotton, 2% Elastane",
+        fit: "Unisex Oversized",
+        models: [{ label: "Front View", img: "img/FRESH TEDDY.png" },
+        //   { label: "Back View", img: "img/fresh-back.jpg" },
+           { label: "Styled", img: "img/Fresh Teddy- 15k.JPG" }] },
+      { name: "Tharvine Classic",
+      price: 90,
+       category: "tharvine-classic",
+       coverImg: "img/THARVINE CLASSIC.png",
+       desc: "The Classic — a heavyweight cotton piece with a wide, relaxed silhouette. Finished with an embossed Tharvine logo.",
+       material: "100% Heavy Cotton (320gsm)", fit: "",
+       models: [{ label: "Black", img: "img/THARVINE CLASSIC.png" },
+       { label: "White", img: "img/THARVINE CLASSIC (White).png" },
+        // { label: "Styled", img: "img/classic-styled.jpg" },
+        ] },
+
+      { name: "Jiggy", price: 15000, category: "jiggy",
+      coverImg: "img/JIGGY.png",
+       desc: "Animal instinct meets tailored structure. Custom-printed fabric, , relaxed fit.",
+       material: "", fit: "Relaxed / Structured",
+       models: [{ label: "Front View",
+       img: "img/JIGGY.png" },
+       { label: "Styled", img: "img/JIGGY- 15k .jpg" },
+    //    { label: "Back View", img: "img/jiggy-back.jpg" }
+     ] },
+
+      { name: "Morphism", price: 15000,
+       category: "morphism", coverImg: "img/MORPHISM.png",
+       desc: "A minimal, versatile piece anchored by the Tharvine silhouette. Lightweight and breathable.",
+       material: "100% Cotton",
+        fit: "Regular",
+         models: [{ label: "Front View", img: "img/MORPHISM.png" },
+
+          { label: "styled", img: "img/Morphism- 15k.JPG" }] },
+      { name: "NASAA", price: 85,
+       category: "nasaa",
+       coverImg: "img/NASAA (Front).png",
+       desc: "NASAA — the cosmos meets streetwear. Interstellar graphic piece inspired by exploration.",
+       material: "100% Cotton (260gsm)", fit: "Oversized",
+        models: [{ label: "Front View", img: "img/NASAA (Front).png" },
+         { label: "Back View", img: "img/NASAA (Back).png" },
+          ] },
+      { name: "TOYW", price: 75, category: "toyw", coverImg: "img/TOYW (Front).png",
+       desc: "The Original, Your Way. TOYW is a Tharvine signature — a versatile canvas piece.",
+       material: "100% Cotton",
+        fit: "Regular / Clean Cut",
+         models: [{ label: "Front View", img: "img/TOYW (Front).png" },
+          { label: "Back View", img: "img/TOYW (Back).png" },
+       ] },
+      { name: "Vintage", price: 15000, category: "vintage",
+       coverImg: "img/VINTAGE.png",
+        desc: "Washed, worn-in, and full of character. The Vintage edit channels nostalgic West African street style.",
+        material: "100% Washed Cotton", fit: "Relaxed / Worn-in",
+        models: [{ label: "Front View", img: "img/VINTAGE.png" },
+           { label: "Styled", img: "img/Vintage- 15k.JPG" }
+        ] },
+      { name: "THVN", price: 20000,
+      category: "thvn", coverImg: "img/THVN (Back).png",
+      desc: "THVN — stripped back to the initials. A refined, logo-forward piece for those who know.",
+       material: "100% Ringspun Cotton", fit: "Regular",
+       models: [{ label: "Front View", img: "img/THVN (Front).png" },
+       { label: "Back View", img: "img/THVN (Back).png" },
+        { label: "Styled", img: "img/THVN- 20k.JPG" },
+       ] },
+      { name: "Tharvine's Bold Gorilla",
+       price: 120, category: "bold",
+       coverImg: "img/THARVINE_s BOLD GORILLA (Front).png"
+       , desc: "The boldest piece in the collection. Oversized statement garment with large-scale print work.",
+        material: "100% Heavy Cotton (320gsm)", fit: "Oversized / Boxy",
+        models: [{ label: "Front View", img: "img/THARVINE_s BOLD GORILLA (Front).png" },
+         { label: "Back View", img: "img/THARVINE_s BOLD GORILLA (Back).png" },] }
+    ];
+
+    let cart = [];
+    let currentProduct = null;
+    let selectedSize = null;
+
+    /* ---------- HELPERS ---------- */
+    function imgTag(src, alt, cls) {
+      return `<img src="${src}" alt="${alt || ''}" class="${cls || ''}" onerror="this.parentElement.innerHTML='<div style=\\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:var(--cream)\\'><span style=\\'font-family:Bebas Neue,sans-serif;font-size:12px;letter-spacing:3px;color:var(--light-grey);text-transform:uppercase\\'>Tharvine</span></div>'">`;
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 2200);
+    }
+
+    function showPage(id) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      window.scrollTo(0, 0);
+    }
+
+    function scrollToProducts() {
+      document.getElementById('productsSection').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    /* ---------- PRODUCT GRID & FILTER ---------- */
+    function renderProducts() {
+      const grid = document.getElementById('productGrid');
+      grid.innerHTML = products.map((p, i) => `
+        <div class="product-card" onclick="openProduct(${i})">
+          <div class="product-img-wrap">
+            ${imgTag(p.coverImg, p.name)}
+            <div class="product-add">Quick View</div>
+          </div>
+          <div class="product-card-info">
+            <div class="product-name">${p.name}</div>
+            <div class="product-price">£${p.price}.00</div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function setTab(el, cat) {
+      document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+      el.classList.add('active');
+      const filtered = cat === 'all' ? products : products.filter(p => p.category === cat);
+      const grid = document.getElementById('productGrid');
+      grid.innerHTML = filtered.map((p) => {
+        const i = products.indexOf(p);
+        return `
+          <div class="product-card" onclick="openProduct(${i})">
+            <div class="product-img-wrap">
+              ${imgTag(p.coverImg, p.name)}
+              <div class="product-add">Quick View</div>
+            </div>
+            <div class="product-card-info">
+              <div class="product-name">${p.name}</div>
+              <div class="product-price">£${p.price}.00</div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    /* ---------- PRODUCT PAGE (PDP) ---------- */
+    function openProduct(index) {
+      currentProduct = products[index];
+      selectedSize = null;
+      showPage('productPage');
+      window.scrollTo(0, 0);
+      document.getElementById('pdpName').textContent = currentProduct.name;
+      document.getElementById('pdpPrice').textContent = `£${currentProduct.price}.00`;
+      document.getElementById('pdpDesc').textContent = currentProduct.desc;
+      document.getElementById('pdpMaterial').textContent = currentProduct.material;
+      document.getElementById('pdpFit').textContent = currentProduct.fit;
+      renderMainImage(0);
+      renderThumbs();
+    }
+
+    function renderMainImage(idx) {
+      const m = currentProduct.models[idx];
+      document.getElementById('mainImgBox').innerHTML = imgTag(m.img, m.label);
+      document.getElementById('modelLabel').textContent = m.label;
+    }
+
+    function renderThumbs() {
+      const row = document.getElementById('thumbRow');
+      row.innerHTML = currentProduct.models.map((m, i) => `
+        <div class="thumb ${i === 0 ? 'active' : ''}" onclick="selectModel(${i}, this)">
+          ${imgTag(m.img, m.label)}
+          <div class="thumb-desc">${m.label}</div>
+        </div>
+      `).join('');
+    }
+
+    function selectModel(idx, el) {
+      document.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
+      el.classList.add('active');
+      renderMainImage(idx);
+    }
+
+    function selectSize(btn) {
+      document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      selectedSize = btn.textContent;
+    }
+
+    /* ---------- CART LOGIC ---------- */
+    function addToCart() {
+      if (!selectedSize) {
+        showToast('Please select a size');
+        return;
+      }
+      const existing = cart.find(i => i.name === currentProduct.name && i.size === selectedSize);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ ...currentProduct, size: selectedSize, qty: 1 });
+      }
+      updateCartUI();
+      showToast('Added to bag');
+      openCart();
+    }
+
+    function updateCartUI() {
+      const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
+      const count = cart.reduce((s, i) => s + i.qty, 0);
+      ['cartCount', 'cartCount2'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.textContent = count;
+          el.style.display = count > 0 ? 'flex' : 'none';
+        }
+      });
+      const itemsEl = document.getElementById('cartItems');
+      const footer = document.getElementById('cartFooter');
+      if (cart.length === 0) {
+        footer.style.display = 'none';
+        itemsEl.innerHTML = '<div class="cart-empty">Your bag is empty.</div>';
+      } else {
+        footer.style.display = 'block';
+        itemsEl.innerHTML = cart.map((item, i) => `
+          <div class="cart-item">
+            <div class="cart-item-img">${imgTag(item.coverImg, item.name)}</div>
+            <div>
+              <div class="cart-item-name">${item.name}</div>
+              <div class="cart-item-detail">Size: ${item.size}</div>
+              <div class="qty-row">
+                <button class="qty-btn" onclick="changeQty(${i}, -1)">−</button>
+                <span class="qty-num">${item.qty}</span>
+                <button class="qty-btn" onclick="changeQty(${i}, 1)">+</button>
+              </div>
+              <div class="remove-item" onclick="removeItem(${i})">Remove</div>
+            </div>
+            <div class="cart-item-price">£${(item.price * item.qty).toFixed(2)}</div>
+          </div>
+        `).join('');
+        document.getElementById('cartTotal').textContent = `£${total.toFixed(2)}`;
+      }
+    }
+
+    function changeQty(i, d) {
+      cart[i].qty += d;
+      if (cart[i].qty <= 0) cart.splice(i, 1);
+      updateCartUI();
+    }
+
+    function removeItem(i) {
+      cart.splice(i, 1);
+      updateCartUI();
+    }
+
+    function openCart() {
+      document.getElementById('cartOverlay').classList.add('open');
+      document.getElementById('cartSidebar').classList.add('open');
+    }
+
+    function closeCart() {
+      document.getElementById('cartOverlay').classList.remove('open');
+      document.getElementById('cartSidebar').classList.remove('open');
+    }
+
+    /* ---------- CHECKOUT ---------- */
+    function goToCheckout() {
+      closeCart();
+      const ref = 'THV-' + Math.random().toString(36).substr(2, 6).toUpperCase();
+      document.getElementById('orderRef').textContent = ref;
+      document.getElementById('orderRef2').textContent = ref;
+      const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
+      document.getElementById('checkoutTotal').textContent = `£${total.toFixed(2)}`;
+      document.getElementById('checkoutItems').innerHTML = cart.map(i => `
+        <div class="checkout-order-item">
+          <span><strong>${i.name}</strong> × ${i.qty} (Size: ${i.size})</span>
+          <span>£${(i.price * i.qty).toFixed(2)}</span>
+        </div>
+      `).join('');
+      showPage('checkoutPage');
+      window.scrollTo(0, 0);
+    }
+
+    function copyAcc() {
+      navigator.clipboard.writeText('3012345678');
+      showToast('Account number copied!');
+    }
+
+    /* ---------- INITIAL RENDER ---------- */
+    renderProducts();
+    updateCartUI();
+  </script>
+</body>
+</html>
+```
