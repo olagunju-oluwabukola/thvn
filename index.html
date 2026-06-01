@@ -167,7 +167,7 @@
     .about-hero-title em { font-style: italic; opacity: 0.6; }
     .about-hero-sub { font-size: 16px; line-height: 1.9; color: rgba(245,242,237,0.6); max-width: 600px; }
     .about-body { padding: 80px 48px; }
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; margin-bottom: 80px; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr gap: 80px; align-items: start; margin-bottom: 80px; }
     .about-grid-img { background: var(--cream); aspect-ratio: 4/5; overflow: hidden; }
     .about-grid-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .about-grid-text h2 { font-family: 'Cormorant Garamond', serif; font-size: 48px; font-weight: 300; line-height: 1.05; margin-bottom: 24px; }
@@ -262,6 +262,7 @@
       .about-team { padding: 48px 20px; }
     }
   </style>
+<base target="_blank">
 </head>
 <body>
 
@@ -286,7 +287,7 @@
       <div class="cart-empty">Your bag is empty.</div>
     </div>
     <div class="cart-footer" id="cartFooter" style="display:none">
-      <div class="cart-subtotal"><span>Subtotal</span><span id="cartTotal">£0</span></div>
+      <div class="cart-subtotal"><span>Subtotal</span><span id="cartTotal">₦0</span></div>
       <button class="checkout-btn" onclick="goToCheckout()">Proceed to Checkout</button>
     </div>
   </div>
@@ -448,11 +449,11 @@
       </div>
       <div class="product-info">
         <div class="product-breadcrumb" onclick="navigateBack()">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px"><path d="M15 18l-6-6 6-6"/></svg>
           <span id="pdpBreadcrumbText">Home / Shop / <span id="pdpCat">Collection</span></span>
         </div>
         <h1 class="product-page-name" id="pdpName">Product Name</h1>
-        <div class="product-page-price" id="pdpPrice">£90.00</div>
+        <div class="product-page-price" id="pdpPrice">₦0</div>
         <div class="product-page-desc" id="pdpDesc">A versatile, beautifully crafted piece.</div>
         <div class="size-label">Select Size</div>
         <div class="size-options" id="sizeOptions">
@@ -504,7 +505,7 @@
     </nav>
 
     <a class="back-btn" onclick="navigate('homePage')">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px"><path d="M15 18l-6-6 6-6"/></svg>
       Back to Shop
     </a>
 
@@ -585,7 +586,7 @@
     </nav>
 
     <a class="back-btn" onclick="navigateBack()">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px"><path d="M15 18l-6-6 6-6"/></svg>
       Back
     </a>
 
@@ -696,7 +697,7 @@
     </nav>
 
     <a class="back-btn" onclick="navigate('homePage')">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px"><path d="M15 18l-6-6 6-6"/></svg>
       Continue Shopping
     </a>
 
@@ -706,7 +707,7 @@
       <div class="checkout-section">
         <h3><span class="step-badge">1</span> Order Summary</h3>
         <div id="checkoutItems"></div>
-        <div class="checkout-total"><span>Total</span><span id="checkoutTotal">£0</span></div>
+        <div class="checkout-total"><span>Total</span><span id="checkoutTotal">₦0</span></div>
       </div>
       <div class="checkout-section">
         <h3><span class="step-badge">2</span> Bank Transfer Details</h3>
@@ -736,7 +737,7 @@
   <script>
     /* -------- PRODUCT DATA -------- */
     const products = [
-      { id: 'eko-series-ii', name: "Eko Series II", price: 95, category: "eko-series",
+      { id: 'eko-series-ii', name: "Eko Series II", price: 21700, category: "eko-series",
         coverImg: "img/EKO SERIES II (Front).png",
         desc: "Inspired by West African street culture. Vibrant hand-finished graphics on premium ringspun cotton.",
         material: "100% Ringspun Cotton", fit: "Regular / Slightly Tapered",
@@ -745,7 +746,7 @@
           { label: "Styled", img: "img/eko-styled.jpeg" },
           { label: "Back View", img: "img/EKO SERIES II (Back).png" }
         ]},
-      { id: 'bus-jersey', name: "B.U.S Jersey", price: 90, category: "bus-jersey",
+      { id: 'bus-jersey', name: "B.U.S Jersey", price: 19700, category: "bus-jersey",
         coverImg: "/img/B.U.S JERSEY (Back).png",
         desc: "The B.U.S Jersey — a signature Tharvine piece. Screen-printed artwork on heavyweight cotton with a relaxed, boxy silhouette.",
         material: "100% Cotton (280gsm)", fit: "Oversized / Boxy",
@@ -754,7 +755,7 @@
           { label: "Back View", img: "/img/B.U.S JERSEY (Back).png" },
           { label: "Styled", img: "img/bus-modeled.jpeg" }
         ]},
-      { id: 'fresh-teddy', name: "Fresh Teddy", price: 15000, category: "fresh-teddy",
+      { id: 'fresh-teddy', name: "Fresh Teddy", price: 17200, category: "fresh-teddy",
         coverImg: "img/FRESH TEDDY.png",
         desc: "A statement piece built on a classic silhouette, reimagined in bold colour. Features a contrast collar.",
         material: "98% Cotton, 2% Elastane", fit: "Unisex Oversized",
@@ -762,7 +763,7 @@
           { label: "Front View", img: "img/FRESH TEDDY.png" },
           { label: "Styled", img: "img/Fresh Teddy- 15k.JPG" }
         ]},
-      { id: 'tharvine-classic', name: "Tharvine Classic", price: 90, category: "tharvine-classic",
+      { id: 'tharvine-classic', name: "Tharvine Classic", price: 12700, category: "tharvine-classic",
         coverImg: "img/THARVINE CLASSIC.png",
         desc: "The Classic — a heavyweight cotton piece with a wide, relaxed silhouette. Finished with an embossed Tharvine logo.",
         material: "100% Heavy Cotton (320gsm)", fit: "",
@@ -770,7 +771,7 @@
           { label: "Black", img: "img/THARVINE CLASSIC.png" },
           { label: "White", img: "img/THARVINE CLASSIC (White).png" }
         ]},
-      { id: 'jiggy', name: "Jiggy", price: 15000, category: "jiggy",
+      { id: 'jiggy', name: "Jiggy", price: 16700, category: "jiggy",
         coverImg: "img/JIGGY.png",
         desc: "Animal instinct meets tailored structure. Custom-printed fabric, relaxed fit.",
         material: "", fit: "Relaxed / Structured",
@@ -778,7 +779,7 @@
           { label: "Front View", img: "img/JIGGY.png" },
           { label: "Styled", img: "img/JIGGY- 15k .jpg" }
         ]},
-      { id: 'morphism', name: "Morphism", price: 15000, category: "morphism",
+      { id: 'morphism', name: "Morphism", price: 17200, category: "morphism",
         coverImg: "img/MORPHISM.png",
         desc: "A minimal, versatile piece anchored by the Tharvine silhouette. Lightweight and breathable.",
         material: "100% Cotton", fit: "Regular",
@@ -786,7 +787,7 @@
           { label: "Front View", img: "img/MORPHISM.png" },
           { label: "Styled", img: "img/Morphism- 15k.JPG" }
         ]},
-      { id: 'nasaa', name: "NASAA", price: 85, category: "nasaa",
+      { id: 'nasaa', name: "Barbed Moon", price: 16700, category: "nasaa",
         coverImg: "img/NASAA (Front).png",
         desc: "NASAA — the cosmos meets streetwear. Interstellar graphic piece inspired by exploration.",
         material: "100% Cotton (260gsm)", fit: "Oversized",
@@ -794,7 +795,7 @@
           { label: "Front View", img: "img/NASAA (Front).png" },
           { label: "Back View", img: "img/NASAA (Back).png" }
         ]},
-      { id: 'toyw', name: "TOYW", price: 75, category: "toyw",
+      { id: 'toyw', name: "Take Over Your World", price: 17200, category: "toyw",
         coverImg: "img/TOYW (Front).png",
         desc: "The Original, Your Way. TOYW is a Tharvine signature — a versatile canvas piece.",
         material: "100% Cotton", fit: "Regular / Clean Cut",
@@ -802,7 +803,7 @@
           { label: "Front View", img: "img/TOYW (Front).png" },
           { label: "Back View", img: "img/TOYW (Back).png" }
         ]},
-      { id: 'vintage', name: "Vintage", price: 15000, category: "vintage",
+      { id: 'vintage', name: "Vintage", price: 17200, category: "vintage",
         coverImg: "img/VINTAGE.png",
         desc: "Washed, worn-in, and full of character. The Vintage edit channels nostalgic West African street style.",
         material: "100% Washed Cotton", fit: "Relaxed / Worn-in",
@@ -810,7 +811,7 @@
           { label: "Front View", img: "img/VINTAGE.png" },
           { label: "Styled", img: "img/Vintage- 15k.JPG" }
         ]},
-      { id: 'thvn', name: "THVN", price: 20000, category: "thvn",
+      { id: 'thvn', name: "THVN", price: 23000, category: "thvn",
         coverImg: "img/THVN (Back).png",
         desc: "THVN — stripped back to the initials. A refined, logo-forward piece for those who know.",
         material: "100% Ringspun Cotton", fit: "Regular",
@@ -819,7 +820,7 @@
           { label: "Back View", img: "img/THVN (Back).png" },
           { label: "Styled", img: "img/THVN- 20k.JPG" }
         ]},
-      { id: 'bold-gorilla', name: "Tharvine's Bold Gorilla", price: 120, category: "bold",
+      { id: 'bold-gorilla', name: "Tharvine's Bold Gorilla", price: 16700, category: "bold",
         coverImg: "img/THARVINE_s BOLD GORILLA (Front).png",
         desc: "The boldest piece in the collection. Oversized statement garment with large-scale print work.",
         material: "100% Heavy Cotton (320gsm)", fit: "Oversized / Boxy",
@@ -861,6 +862,14 @@
     // Handle initial hash on load
     window.addEventListener('load', function() {
       const hash = window.location.hash.replace('#', '');
+      if (hash.startsWith('product/')) {
+        const productId = hash.replace('product/', '');
+        const productIndex = products.findIndex(p => p.id === productId);
+        if (productIndex !== -1) {
+          openProduct(productIndex);
+          return;
+        }
+      }
       if (hash && document.getElementById(hash)) {
         navigate(hash);
       }
@@ -893,7 +902,7 @@
           </div>
           <div class="product-card-info">
             <div class="product-name">${p.name}</div>
-            <div class="product-price">£${p.price.toLocaleString()}</div>
+            <div class="product-price">₦${p.price.toLocaleString()}</div>
           </div>
         </div>`;
     }
@@ -929,9 +938,11 @@
       previousPage = document.querySelector('.page.active').id;
 
       navigate('productPage');
+      // Update URL slug
+      history.replaceState({ page: 'productPage', product: index }, '', '#product/' + currentProduct.id);
 
       document.getElementById('pdpName').textContent = currentProduct.name;
-      document.getElementById('pdpPrice').textContent = `£${currentProduct.price.toLocaleString()}`;
+      document.getElementById('pdpPrice').textContent = `₦${currentProduct.price.toLocaleString()}`;
       document.getElementById('pdpDesc').textContent = currentProduct.desc;
       document.getElementById('pdpMaterial').textContent = currentProduct.material;
       document.getElementById('pdpFit').textContent = currentProduct.fit;
@@ -1012,9 +1023,9 @@
               </div>
               <div class="remove-item" onclick="removeItem(${i})">Remove</div>
             </div>
-            <div>£${(item.price * item.qty).toFixed(2)}</div>
+            <div>₦${(item.price * item.qty).toLocaleString()}</div>
           </div>`).join('');
-        document.getElementById('cartTotal').textContent = `£${total.toFixed(2)}`;
+        document.getElementById('cartTotal').textContent = `₦${total.toLocaleString()}`;
       }
     }
 
@@ -1035,11 +1046,11 @@
       document.getElementById('orderRef').textContent = ref;
       document.getElementById('orderRef2').textContent = ref;
       const total = cart.reduce((s,i) => s + i.price * i.qty, 0);
-      document.getElementById('checkoutTotal').textContent = `£${total.toFixed(2)}`;
+      document.getElementById('checkoutTotal').textContent = `₦${total.toLocaleString()}`;
       document.getElementById('checkoutItems').innerHTML = cart.map(i => `
         <div class="checkout-order-item">
           <span><strong>${i.name}</strong> × ${i.qty} (Size: ${i.size})</span>
-          <span>£${(i.price * i.qty).toFixed(2)}</span>
+          <span>₦${(i.price * i.qty).toLocaleString()}</span>
         </div>`).join('');
       navigate('checkoutPage');
     }
